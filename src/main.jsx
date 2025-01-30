@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ChakraProvider, CSSReset, Box, Button } from '@chakra-ui/react'
 import { lightTheme, darkTheme } from './theme/theme'
+import { MoonIcon } from '@chakra-ui/icons'
+import { SunIcon } from '@chakra-ui/icons'
+
 import App from './App'
 
 const rootElement = document.getElementById('root')
@@ -17,9 +20,17 @@ const AppWrapper = () => {
   return (
     <ChakraProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <CSSReset />
-      <Box p={4}>
-        <Button onClick={toggleTheme}>
-          {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+      <Box p={4} m="0 auto" maxW="800px">
+        <Button
+          onClick={toggleTheme}
+          type="submit"
+          pos="absolute"
+          right="3"
+          color="text"
+          backgroundColor="primary.200"
+          _hover={{ backgroundColor: 'primary.100' }}
+        >
+          {isDarkMode ? <SunIcon /> : <MoonIcon />}
         </Button>
         <App />
       </Box>
