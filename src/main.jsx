@@ -25,6 +25,7 @@ const AppWrapper = () => {
           onClick={toggleTheme}
           type="submit"
           pos="absolute"
+          top="3"
           right="3"
           color="text"
           backgroundColor="primary.200"
