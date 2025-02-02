@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
-import { Box, Image, Text, Spinner } from '@chakra-ui/react'
+import { Box, Image, Text, Spinner, Switch } from '@chakra-ui/react'
+import { useState } from 'react'
 
 const WeatherDataDisplay = ({ weatherData, isLoading }) => {
+  // Switch Celsius to Fahrenheit
+  const [isCelsius, setIsCelsius] = useState(true)
+  const toggleTemperatureUnit = () => {
+    setIsCelsius(!isCelsius)
+  }
+
   return (
     <Box
       display="flex"
@@ -11,6 +18,7 @@ const WeatherDataDisplay = ({ weatherData, isLoading }) => {
       gap="20px"
       minH="169px"
       padding={['5', '5', '5']}
+      marginTop={['20px', '0', '0']}
       textAlign="center"
       color="text"
       backgroundColor="backgroundHardOpacity"
@@ -18,6 +26,7 @@ const WeatherDataDisplay = ({ weatherData, isLoading }) => {
       border="3px solid"
       borderColor="primary.200"
       borderRadius="rounded"
+      position="relative"
     >
       {isLoading ? (
         <Box
@@ -31,14 +40,41 @@ const WeatherDataDisplay = ({ weatherData, isLoading }) => {
         </Box>
       ) : weatherData ? (
         <>
+          <Box
+            display="flex"
+            alignItems="center"
+            position="absolute"
+            top="-40px"
+            right={['auto', '20px', '20px']}
+          >
+            °C
+            <Switch
+              onChange={toggleTemperatureUnit}
+              isChecked={!isCelsius}
+              margin="0 10px"
+              sx={{
+                'span.chakra-switch__track[data-checked]': {
+                  bg: 'primary.200',
+                },
+                'span.chakra-switch__track': {
+                  bg: 'primary.200',
+                },
+              }}
+            />
+            °F
+          </Box>
           <Box display="flex" textAlign={['center', 'left']} gap="10px">
             <Box>
               <Box display="flex" alignItems="flex-start" gap="10px">
                 <Box display="flex">
                   <Text fontSize="huge" fontWeight="Bold" lineHeight="1.35">
-                    {weatherData.current.temp_c}
+                    {isCelsius
+                      ? weatherData?.current?.temp_c
+                      : weatherData?.current?.temp_f}
                   </Text>
-                  <Text fontSize="xl">°C</Text>
+                  <Text fontSize="xl">
+                    {isCelsius ? '°C' : '°F'}
+                  </Text>
                 </Box>
                 <Image
                   src={`/icons/${weatherData.current.condition.code}.svg`}
@@ -47,7 +83,7 @@ const WeatherDataDisplay = ({ weatherData, isLoading }) => {
                 />
               </Box>
               <Text fontSize="lg" color="accent">
-                {weatherData.current.condition.text}
+                {weatherData?.current?.condition.text}
               </Text>
             </Box>
           </Box>
@@ -55,20 +91,21 @@ const WeatherDataDisplay = ({ weatherData, isLoading }) => {
             <Box display="flex" flexDirection="column" alignItems="center">
               <Image src="/icons/Wind.svg" alt="weather" w="60px" />
               <Text fontSize="lg" fontWeight="Bold">
-                {weatherData.current.wind_kph} 0 m/s
+                {weatherData?.current?.wind_kph} 0 m/s
               </Text>
               <Text fontSize="lg">Wind speed</Text>
             </Box>
             <Box display="flex" flexDirection="column" alignItems="center">
               <Image src="/icons/Humidity.svg" alt="weather" w="60px" />
               <Text fontSize="lg" fontWeight="Bold">
-                {weatherData.current.humidity}%
+                {weatherData?.current?.humidity}%
               </Text>
               <Text fontSize="lg">Humidity</Text>
             </Box>
           </Box>
         </>
       ) : (
+        // At the start of the app
         <Box
           display="flex"
           justifyContent="center"

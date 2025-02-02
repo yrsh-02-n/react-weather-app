@@ -39,7 +39,7 @@ function App() {
     
 
     // Data loading with manual delay (to show loader)
-    new Promise((resolve) => setTimeout(resolve, 1000))
+    new Promise((resolve) => setTimeout(resolve, 500))
       .then(() => weatherRequestFromAPI(city))
       .then((data) => {
         setWeatherData(data)
