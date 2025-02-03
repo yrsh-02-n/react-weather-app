@@ -20,7 +20,7 @@ const AppWrapper = () => {
   return (
     <ChakraProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <CSSReset />
-      <Box p={4} m="0 auto" maxW="800px">
+      <Box p={4} m="0 auto" maxW="800px" height="100vh">
         <Button
           onClick={toggleTheme}
           type="submit"

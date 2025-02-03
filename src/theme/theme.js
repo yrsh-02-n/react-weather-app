@@ -52,6 +52,8 @@ const lightTheme = extendTheme({
         },
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center top',
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
       },
       h1: {
         fontSize: 'xl',
@@ -119,6 +121,8 @@ const darkTheme = extendTheme({
         },
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center top',
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
       },
       h1: {
         fontSize: 'xl',

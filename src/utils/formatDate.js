@@ -1,11 +1,20 @@
-export const formatDate = () => {
+export const formatDate = (dateString = new Date()) => {
   const locale = navigator.language || 'en-EN'
-  const now = new Date()
+  const date = new Date(dateString)
 
-  return now.toLocaleDateString(locale, {
+  return date.toLocaleDateString(locale, {
     year: 'numeric',
     weekday: 'long',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+  })
+}
+
+export const formatDateWeekDay = (dateString) => {
+  const locale = navigator.language || 'en-EN'
+  const now = new Date(dateString)
+
+  return now.toLocaleDateString(locale, {
+    weekday: 'short',
   })
 }

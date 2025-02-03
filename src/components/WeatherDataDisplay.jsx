@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Box, Image, Text, Spinner, Switch } from '@chakra-ui/react'
-import { useState } from 'react'
 
-const WeatherDataDisplay = ({ weatherData, isLoading }) => {
-  // Switch Celsius to Fahrenheit
-  const [isCelsius, setIsCelsius] = useState(true)
-  const toggleTemperatureUnit = () => {
-    setIsCelsius(!isCelsius)
-  }
-
+const WeatherDataDisplay = ({
+  weatherData,
+  isLoading,
+  isCelsius,
+  toggleTemperatureUnit,
+}) => {
   return (
     <Box
       display="flex"
@@ -39,7 +37,7 @@ const WeatherDataDisplay = ({ weatherData, isLoading }) => {
           <Spinner color="primary.200" />
         </Box>
       ) : weatherData ? (
-        <>
+        <>          
           <Box
             display="flex"
             alignItems="center"
@@ -63,6 +61,7 @@ const WeatherDataDisplay = ({ weatherData, isLoading }) => {
             />
             °F
           </Box>
+
           <Box display="flex" textAlign={['center', 'left']} gap="10px">
             <Box>
               <Box display="flex" alignItems="flex-start" gap="10px">
@@ -71,9 +70,6 @@ const WeatherDataDisplay = ({ weatherData, isLoading }) => {
                     {isCelsius
                       ? weatherData?.current?.temp_c
                       : weatherData?.current?.temp_f}
-                  </Text>
-                  <Text fontSize="xl">
-                    {isCelsius ? '°C' : '°F'}
                   </Text>
                 </Box>
                 <Image
@@ -87,6 +83,7 @@ const WeatherDataDisplay = ({ weatherData, isLoading }) => {
               </Text>
             </Box>
           </Box>
+
           <Box display="flex" gap="20px" alignItems="center">
             <Box display="flex" flexDirection="column" alignItems="center">
               <Image src="/icons/Wind.svg" alt="weather" w="60px" />

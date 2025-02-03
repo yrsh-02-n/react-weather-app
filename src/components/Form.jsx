@@ -3,7 +3,7 @@ import { FormControl, Input, Button } from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
 
 import { useState } from 'react'
-import { weatherRequestFromAPI } from '../utils/weatherRequestFromAPI'
+import { weatherCurrentFromAPI } from '../utils/weatherRequestFromAPI'
 
 const Form = ({ fetchWeatherData }) => {
   const [requestText, setRequestText] = useState('')
@@ -14,7 +14,7 @@ const Form = ({ fetchWeatherData }) => {
     // Call function from App
     if (!requestText.trim()) return
     fetchWeatherData(requestText)
-    weatherRequestFromAPI(requestText)
+    weatherCurrentFromAPI(requestText)
     setRequestText('')
   }
 
