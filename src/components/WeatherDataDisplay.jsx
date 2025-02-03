@@ -37,7 +37,7 @@ const WeatherDataDisplay = ({
           <Spinner color="primary.200" />
         </Box>
       ) : weatherData ? (
-        <>          
+        <>
           <Box
             display="flex"
             alignItems="center"
@@ -71,6 +71,7 @@ const WeatherDataDisplay = ({
                       ? weatherData?.current?.temp_c
                       : weatherData?.current?.temp_f}
                   </Text>
+                  <Text fontSize="xl">{isCelsius ? '°C' : '°F'}</Text>
                 </Box>
                 <Image
                   src={`/icons/${weatherData.current.condition.code}.svg`}

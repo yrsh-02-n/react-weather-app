@@ -39,9 +39,13 @@ const WeatherForcast = ({ forecastData, isCelsius }) => {
             alt="weather"
             w="40px"
           />
-          <Text color="text" textAlign="center">
-            {isCelsius ? day.day.avgtemp_c : day.day.avgtemp_f}
-          </Text>
+          <Box display="flex">
+            <Text color="text" textAlign="center">
+              {isCelsius
+                ? `${day.day.avgtemp_c} °C`
+                : `${day.day.avgtemp_f} °F`}
+            </Text>
+          </Box>
         </Box>
       ))}
     </Box>
