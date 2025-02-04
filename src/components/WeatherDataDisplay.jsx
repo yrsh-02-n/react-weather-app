@@ -87,7 +87,7 @@ const WeatherDataDisplay = ({
                   <Text fontSize="xl">{isCelsius ? '°C' : '°F'}</Text>
                 </Box>
                 <Image
-                  src={`/icons/${weatherData.current.condition.code}.svg`}
+                  src={`icons/${weatherData.current.condition.code}.svg`}
                   alt="weather"
                   w="60px"
                 />
@@ -100,14 +100,14 @@ const WeatherDataDisplay = ({
 
           <Box display="flex" gap="20px" alignItems="center">
             <Box display="flex" flexDirection="column" alignItems="center">
-              <Image src="/icons/Wind.svg" alt="weather" w="60px" />
+              <Image src="icons/Wind.svg" alt="weather" w="60px" />
               <Text fontSize="lg" fontWeight="Bold">
                 {weatherData?.current?.wind_kph} 0 m/s
               </Text>
               <Text fontSize="lg">Wind speed</Text>
             </Box>
             <Box display="flex" flexDirection="column" alignItems="center">
-              <Image src="/icons/Humidity.svg" alt="weather" w="60px" />
+              <Image src="icons/Humidity.svg" alt="weather" w="60px" />
               <Text fontSize="lg" fontWeight="Bold">
                 {weatherData?.current?.humidity}%
               </Text>

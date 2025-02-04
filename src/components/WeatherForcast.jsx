@@ -35,7 +35,7 @@ const WeatherForcast = ({ forecastData, isCelsius }) => {
             {formatDateWeekDay(day.date)}
           </Text>
           <Image
-            src={`/icons/${day.day.condition.code}.svg`}
+            src={`icons/${day.day.condition.code}.svg`}
             alt="weather"
             w="40px"
           />
