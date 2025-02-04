@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { ChakraProvider, CSSReset, Box, Button } from '@chakra-ui/react'
+import { ChakraProvider, CSSReset, Box, Button, Link } from '@chakra-ui/react'
 import { lightTheme, darkTheme } from './theme/theme'
 import { MoonIcon } from '@chakra-ui/icons'
 import { SunIcon } from '@chakra-ui/icons'
@@ -20,7 +20,13 @@ const AppWrapper = () => {
   return (
     <ChakraProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <CSSReset />
-      <Box p={4} m="0 auto" maxW="800px" minHeight="100vh" marginBottom="5">
+      <Box
+        p={4}
+        m="0 auto"
+        maxW="800px"
+        minHeight="100vh"
+        marginBottom={['5', '0', '0']}
+      >
         <Button
           onClick={toggleTheme}
           type="submit"
@@ -34,6 +40,21 @@ const AppWrapper = () => {
           {isDarkMode ? <SunIcon /> : <MoonIcon />}
         </Button>
         <App />
+
+        <Link
+          href="https://github.com/yrsh-02-n/react-weather-app"
+          target="blank_"
+          textAlign="center"
+          position="absolute"
+          color="primary.400"
+          fontWeight="bold"
+          fontSize="lg"
+          bottom="20px"
+          left="0"
+          right="0"
+        >
+          Watch code at Github
+        </Link>
       </Box>
     </ChakraProvider>
   )

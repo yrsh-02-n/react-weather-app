@@ -40,11 +40,13 @@ function App() {
           setCityName(currentData.location.name)
         } else {
           // 400
-          setError('It was not possible to find the city you lead. Try again please.')
+          setError(
+            'It was not possible to find the city you lead. Try again please.'
+          )
         }
       })
       .catch((error) => {
-        // 403 
+        // 403
         setError('An error occurred while fetching weather data.')
       })
       .finally(() => {
