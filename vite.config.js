@@ -4,14 +4,15 @@ import ViteImagemin from 'vite-plugin-imagemin'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/react-weather-app/',
   plugins: [
     react(),
     ViteImagemin({
       webp: {
-        quality: 75, // Уровень качества для WebP
+        quality: 75,
       },
       mozjpeg: {
-        quality: 75, // Качество JPEG
+        quality: 75,
       },
       optipng: {
         optimizationLevel: 3,
