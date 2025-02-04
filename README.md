@@ -15,6 +15,7 @@ This is my educational project built with React.
 
 # Tech Stack & Libraries
 - React.js
+- Vite
 - Axios
 - Chakra UI
 - [Weather API](https://www.weatherapi.com/)
