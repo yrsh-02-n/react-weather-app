@@ -6,6 +6,7 @@ const WeatherDataDisplay = ({
   isLoading,
   isCelsius,
   toggleTemperatureUnit,
+  error,
 }) => {
   return (
     <Box
@@ -35,6 +36,18 @@ const WeatherDataDisplay = ({
           margin="0 auto"
         >
           <Spinner color="primary.200" />
+        </Box>
+      ) : error ? (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          width="100%"
+          margin="0 auto"
+        >
+          <Text color="red.500" fontSize="lg" fontWeight="bold">
+            {error}
+          </Text>
         </Box>
       ) : weatherData ? (
         <>

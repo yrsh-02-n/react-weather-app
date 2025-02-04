@@ -26,17 +26,30 @@ function App() {
 
   // Function for updating weather data
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
+
   const fetchWeatherData = (city) => {
     setIsLoading(true)
+    setError(null)
 
     Promise.all([weatherCurrentFromAPI(city), weatherForecastFromAPI(city)])
       .then(([currentData, forecastData]) => {
-        setWeatherData(currentData)
-        setForecastData(forecastData)
-        setCityName(currentData.location.name)
+        if (currentData && forecastData) {
+          setWeatherData(currentData)
+          setForecastData(forecastData)
+          setCityName(currentData.location.name)
+        } else {
+          // 400
+          setError('It was not possible to find the city you lead. Try again please.')
+        }
+      })
+      .catch((error) => {
+        // 403 
+        setError('An error occurred while fetching weather data.')
+      })
+      .finally(() => {
         setIsLoading(false)
       })
-      .catch((error) => console.log(error))
   }
 
   // Switch Celsius to Fahrenheit
@@ -50,6 +63,7 @@ function App() {
       justifyContent="flex-start"
       alignItems="center"
       marginTop={['55', '20', '20']}
+      marginBottom="20"
       padding={['5', '10', '10']}
       minH="580"
       color={textColor}
@@ -70,6 +84,7 @@ function App() {
         isLoading={isLoading}
         isCelsius={isCelsius}
         toggleTemperatureUnit={toggleTemperatureUnit}
+        error={error}
       />
       <WeatherForcast forecastData={forecastData} isCelsius={isCelsius} />
     </Box>
