@@ -6,11 +6,11 @@
   "homepage": "https://yrsh-02-n.github.io/react-weather-app",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.2.4",
