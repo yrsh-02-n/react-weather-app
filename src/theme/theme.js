@@ -47,8 +47,8 @@ const lightTheme = extendTheme({
     global: {
       body: {
         backgroundImage: {
-          base: 'url(/react-weather-app/public/images/day.jpg)', // JPEG для старых браузеров
-          md: 'url(/react-weather-app/public/images/day.webp)', // WebP для поддерживающих браузеров
+          base: 'url(images/day.jpg)',
+          md: 'url(images/day.webp)',
         },
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center top',
@@ -116,8 +116,8 @@ const darkTheme = extendTheme({
       body: {
         backgroundImage: {
           // jpg for old and webp for new browsers
-          base: 'url(/react-weather-app/public/images/night.jpg)',
-          md: 'url(/react-weather-app/public/images/night.webp)',
+          base: 'url(images/night.jpg)',
+          md: 'url(images/night.webp)',
         },
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center top',

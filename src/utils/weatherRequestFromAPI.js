@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // https://www.weatherapi.com/docs/
 
-const BASE_URL = 'http://api.weatherapi.com/v1'
+const BASE_URL = 'https://api.weatherapi.com/v1'
 const API_KEY = 'ff243070653f48c386e135913253001'
 
 export const weatherCurrentFromAPI = (cityName) => {
